@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyCARS - Contact</title>
+    <link rel="stylesheet" href="sty.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">MyCARS</div>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">Home</a></li>
+                    <li><a href="services.htm">Services</a></li>
+                    <li><a href="contact.htm">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+        <section class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-details">
+            <p>Email: akweb2025@gmail.com | Phone: +91-55-3333-9999</p>
+            <p>Visit us: MyCARS Collection, IN</p>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div id="popup-modal" class="popup-modal">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <p>Message Sent!</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="logo">MyCARS</div>
+        <nav>
+          
+        </nav>
+    </footer>
+
+    <script>
+        const form = document.getElementById('contact-form');
+        const popupModal = document.getElementById('popup-modal');
+        const closeBtn = document.querySelector('.close-btn');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); 
+            popupModal.style.display = 'block';
+            form.reset(); 
+        });
+
+        closeBtn.addEventListener('click', () => {
+            popupModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === popupModal) {
+                popupModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

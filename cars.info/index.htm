@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The-Ones - Vintage Car Collection</title>
+    <link rel="stylesheet" href="sty.css">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">The-Ones</div>
+            <form class="search-form" action="#" method="GET" autocomplete="off" style="position: relative; display: flex; align-items: center;">
+                <input type="text" name="search" placeholder="Search cars..." class="search-input" />
+                <button type="submit" class="search-button">Search</button>
+                <div class="suggestions-list" style="position: absolute; top: 100%; left: 0; right: 0; background: white; color: black; border-radius: 6px; max-height: 150px; overflow-y: auto; width: 100%; display: none; z-index: 1000;"></div>
+            </form>
+            <nav>
+                <ul>
+                    <li><a href="index.htm">Home</a></li>
+                    <li><a href="service.htm">Services</a></li>
+                    <li><a href="contact.htm">Contact</a></li>
+                    <li><a href="login.htm">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Explore Our Vintage Car Collection</h1>
+        <p>Timeless Classics at MyCARS Showroom, IN</p>
+    </section>
+
+
+    <section class="why-join">
+        <h2>Our Featured Vintage Cars</h2>
+        <div class="cards">
+            <div class="card">
+                <img src='1957chevrolet.jpeg' alt="1957 Chevrolet Bel Air" class="car-image" >
+                <h3>1957 Chevrolet Bel Air</h3>
+                <p>A classic American icon with a V8 engine,The 1957 Chevrolet Bel Air, produced by General Motors in Detroit, USA, debuted as part of Chevrolet's second-generation Bel Air series, featuring a 4.6-liter V8 engine, known for its distinctive tailfins and chrome trim. Production of this generation ended in 1957, as Chevrolet introduced the restyled 1958 models, which shifted away from the classic tailfin design.</p>
+            </div>
+            <div class="card">
+                <img src='1964 fmustang.jpeg' alt="1965 Ford Mustang" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1965 Ford Mustang</h3>
+                <p>The 1965 Ford Mustang, introduced by Ford in Dearborn, USA, on April 17, 1964, at the New York World's Fair, launched the "pony car" segment with a 4.7-liter V8 option. Its sleek, sporty design and affordable price made it an instant hit, selling over 1 million units by 1966. The first-generation Mustang's original design ended in 1973, replaced by the larger, heavier Mustang II due to changing market trends and fuel economy concerns.</p>
+            </div>
+            <div class="card">
+                <img src='images.jpeg' alt="1936 Rolls-Royce Phantom III" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1936 Rolls-Royce Phantom III</h3>
+                <p>A symbol of luxury with a V12 engine, The 1936 Rolls-Royce Phantom III, built by Rolls-Royce in Derby, UK, debuted as the last large pre-war Rolls-Royce, powered by a 7.3-liter V12 engine. It was a pinnacle of luxury, featuring bespoke coachwork and advanced engineering, with only 727 units produced, often for royalty and elite clients. Production ceased in 1939, as World War II halted luxury car manufacturing.</p>
+            </div>
+            <div class="card">
+                <img src='1955 mercedes 300.jpeg'  alt="1955 Mercedes-Benz 300SL" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1955 Mercedes-Benz 300SL</h3>
+                <p>The 1955 Mercedes-Benz 300SL, introduced by Mercedes-Benz in Stuttgart, Germany, debuted as a road version of the 1952 W194 race car, featuring a 3.0-liter inline-six and iconic gull-wing doors. It was the fastest production car of its time, reaching 163 mph, with 1,400 coupes built, making it a symbol of engineering excellence. Production of the gull-wing coupe ended in 1957, transitioning to the 300SL Roadster, which continued until 1963.</p>
+            </div>
+            <div class="card">
+                <img src='1969dodgech..jpeg' alt="1969 Dodge Charger" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1969 Dodge Charger</h3>
+                <p>The 1969 Dodge Charger, produced by Chrysler in Detroit, USA, emerged as a second-generation model with a 7.0-liter HEMI V8 option, epitomizing the muscle car era. Its bold design, including a sculpted grille and fastback roofline, made it a cultural icon, notably featured in "The Dukes of Hazzard," with around 89,000 units sold. The second-generation Charger ended in 1970, replaced by a new design in 1971 that shifted toward a more luxurious style.</p>
+            </div>
+            <div class="card">
+                <img src='cardiallac.jpeg'  alt="1959 Cadillac Eldorado" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1959 Cadillac Eldorado</h3>
+                <p>The 1959 Cadillac Eldorado, built by General Motors in Detroit, USA, debuted as part of Cadillac’s third-generation Eldorado series, featuring a 6.4-liter V8 and dramatic tailfins reaching their design peak. It was a symbol of American luxury, with the Biarritz convertible model being the most iconic, though only 1,320 convertibles were made that year. The third-generation Eldorado ended in 1960, as Cadillac introduced a more restrained design for the 1961 models.</p>
+            </div>
+            <div class="card">
+                <img src='32 fmodal b.jpeg' alt="1932 Ford Model B" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1932 Ford Model B</h3>
+                <p>A classic hot rod with a V8 flathead engine,The 1932 Ford Model B, introduced by Ford in Dearborn, USA, was an evolution of the Model A, featuring a 3.3-liter four-cylinder engine, with the V8-powered version often called the "Deuce." It became a favorite for hot rod builders due to its lightweight body and powerful engine options, with around 125,000 units produced. Production ended in 1934, as Ford replaced it with the Model C, focusing on more modern designs.</p>
+            </div>
+            <div class="card">
+                <img src='63 chevrolet corvette(sting ray).jpeg' alt="1963 Chevrolet Corvette Sting Ray" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1963 Chevrolet Corvette Sting Ray</h3>
+                <p>The 1963 Chevrolet Corvette Sting Ray, launched by General Motors in Detroit, USA, introduced the second-generation Corvette (C2) with a 5.4-liter V8 and the iconic split rear window on coupes. Designed by Larry Shinoda under Bill Mitchell, it set new standards for American sports cars, producing 21,513 units in its debut year. The split-window design ended in 1963, with the Sting Ray name continuing until 1967, replaced by the C3 in 1968.</p>
+            </div>
+            <div class="card">
+                <img src='48jaguar xk120.jpeg' alt="1948 Jaguar XK120" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1948 Jaguar XK120</h3>
+                <p>The 1948 Jaguar XK120, introduced by Jaguar in Coventry, UK, debuted at the 1948 London Motor Show, featuring a 3.4-liter inline-six engine and a top speed of 120 mph. It was the fastest production car of its time, with its sleek design captivating buyers, producing over 12,000 units across roadster, coupe, and drophead variants. Production ended in 1954, as Jaguar introduced the XK140, offering improved features like better brakes and suspension.</p>
+            </div>
+            <div class="card">
+                <img src='54porsche 356.jpeg' alt="1954 Porsche 356 Speedster" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1954 Porsche 356 Speedster</h3>
+                <p>The 1954 Porsche 356 Speedster, launched by Porsche in Stuttgart, Germany, was a lightweight variant of the 356 series, featuring a 1.5-liter flat-four engine and minimalist design. Introduced at the urging of U.S. importer Max Hoffman, it became a favorite for enthusiasts, with around 4,800 Speedsters built, epitomizing Porsche’s early sports car legacy. Production of the 356 Speedster ended in 1958, as Porsche transitioned to the more refined 356B series in 1959.</p>
+            </div>
+         
+            <div class="card">
+                <img src='67 shelby gt500.jpeg' alt="1967 Shelby GT500" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1967 Shelby GT500</h3>
+                <p>The 1967 Shelby GT500, produced by Shelby American in Los Angeles, USA, was a high-performance version of the Ford Mustang, equipped with a 7.0-liter V8 Cobra Jet engine producing 355 horsepower. Carroll Shelby’s creation became a legend in the muscle car era, with 2,048 units built, offering aggressive styling and racing pedigree. The original Shelby Mustang production ended in 1970, as Shelby American shifted focus, though Ford later revived the GT500 name in 2007.</p>
+            </div>
+            <div class="card">
+                <img src='bugatti 38.jpeg' alt="1938 Bugatti Type 57SC Atlantic" class="car-image" onclick="openImageModal(this.src)">
+                <h3>1938 Bugatti Type 57SC Atlantic</h3>
+                <p>The 1938 Bugatti Type 57SC Atlantic, crafted by Bugatti in Molsheim, France, was a masterpiece of design by Jean Bugatti, featuring a 3.3-liter supercharged inline-eight engine. Only four were ever made, with its aerodynamic shape and riveted aluminum body making it one of the most iconic cars in history, often valued at over $40 million today. Production ended in 1940, as World War II forced Bugatti to halt operations, and the company never resumed Atlantic production.</p>
+            </div>
+        
+            </div>
+        </div>
+    </section>
+    
+    <section class="discover">
+        <div class="discover-content">
+            <h2>Discover Vintage Elegance</h2>
+            <p>Step back in time with our curated collection of vintage cars...</p>
+        </div>
+    </section>
+
+    <div id="image-modal" class="image-modal">
+        <div class="image-modal-content">
+            <span class="close-image-btn">×</span>
+            <img id="modal-image" src="" alt="Full Image">
+        </div>
+    </div>
+
+    <footer class="footer">all rights reseverd @akshat.cars2025
+        <div class="logo">MyCARS</div>
+        <nav>
+            <ul>
+                <li><a href="index.htm">Home</a></li>
+                <li><a href="service.htm">Services</a></li>
+                <li><a href="contact.htm">Contact</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <script>
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeImageBtn = document.querySelector('.close-image-btn');
+
+        function openImageModal(src) {
+            modalImage.src = src;
+            imageModal.style.display = 'block';
+        }
+
+        closeImageBtn.addEventListener('click', () => {
+            imageModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        const searchForm = document.querySelector('.search-form');
+        const searchInput = document.querySelector('.search-input');
+        const suggestionsList = document.querySelector('.suggestions-list');
+        const carCards = document.querySelectorAll('.card');
+
+        const carNames = Array.from(carCards).map(card => card.querySelector('h3').textContent);
+
+        searchInput.addEventListener('input', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            suggestionsList.innerHTML = '';
+            if (!query) {
+                suggestionsList.style.display = 'none';
+                return;
+            }
+            const filtered = carNames.filter(name => name.toLowerCase().includes(query));
+            if (filtered.length === 0) {
+                suggestionsList.style.display = 'none';
+                return;
+            }
+            filtered.forEach(name => {
+                const div = document.createElement('div');
+                div.textContent = name;
+                div.style.padding = '6px 10px';
+                div.style.cursor = 'pointer';
+                div.addEventListener('click', () => {
+                    searchInput.value = name;
+                    suggestionsList.style.display = 'none';
+                });
+                div.addEventListener('mouseover', () => {
+                    div.style.backgroundColor = '#FF69B4';
+                    div.style.color = 'white';
+                });
+                div.addEventListener('mouseout', () => {
+                    div.style.backgroundColor = 'white';
+                    div.style.color = 'black';
+                });
+                suggestionsList.appendChild(div);
+            });
+            suggestionsList.style.display = 'block';
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!searchForm.contains(e.target)) {
+                suggestionsList.style.display = 'none';
+            }
+        });
+
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            suggestionsList.style.display = 'none';
+            const query = searchInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            let found = false;
+            carCards.forEach(card => {
+                const carName = card.querySelector('h3').textContent.toLowerCase();
+                if (carName.includes(query)) {
+                    found = true;
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    highlightCard(card);
+                }
+            });
+
+            if (!found) {
+                alert('Car not found');
+            }
+        });
+
+        function highlightCard(card) {
+            card.classList.add('highlight');
+            setTimeout(() => {
+                card.classList.remove('highlight');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

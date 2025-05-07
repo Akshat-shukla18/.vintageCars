@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login </title>
+    <link rel="stylesheet" href="sty.css" />
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 80px auto;
+            background: #2A1A5E;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+            color: white;
+        }
+        .login-container h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #FF69B4;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container label {
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: #f0e7f7;
+            color: #1C2526;
+            transition: box-shadow 0.3s ease;
+        }
+        .login-container input[type="text"]:focus,
+        .login-container input[type="password"]:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+        }
+        .login-container button {
+            background: #FF69B4;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+        .login-container button:hover {
+            background: #e0559f;
+            transform: translateY(-2px);
+        }
+        .login-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #d3d3d3;
+        }
+        .login-footer a {
+            color: #FF69B4;
+            text-decoration: none;
+        }
+        .login-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2 id="form-title" style="font-size: 3rem;">Login</h2>
+        <form id="auth-form" action="#" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            <button type="submit" id="submit-btn">Login</button>
+        </form>
+        <div class="login-footer">
+            <p id="toggle-text">Don't have an account? <a href="#" id="toggle-link">Sign up</a></p>
+        </div>
+        <p id="message" style="text-align:center; margin-top: 15px; color: #FF69B4;"></p>
+    </div>
+</body>
+<script>
+    const formTitle = document.getElementById('form-title');
+    const authForm = document.getElementById('auth-form');
+    const toggleText = document.getElementById('toggle-text');
+    const toggleLink = document.getElementById('toggle-link');
+    const submitBtn = document.getElementById('submit-btn');
+    const message = document.getElementById('message');
+
+    let isLogin = true;
+
+    toggleLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        isLogin = !isLogin;
+        if (isLogin) {
+            formTitle.textContent = 'Login';
+            submitBtn.textContent = 'Login';
+            toggleText.innerHTML = 'Don\'t have an account? <a href="#" id="toggle-link">Sign up</a>';
+        } else {
+            formTitle.textContent = 'Sign Up ';
+            submitBtn.textContent = 'Sign Up';
+            toggleText.innerHTML = 'Already have an account? <a href="#" id="toggle-link">Login</a>';
+        }
+        message.textContent = '';
+        document.getElementById('toggle-link').addEventListener('click', toggleLinkHandler);
+    });
+
+    function toggleLinkHandler(e) {
+        e.preventDefault();
+        toggleLink.click();
+    }
+
+    authForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = authForm.username.value.trim();
+        const password = authForm.password.value.trim();
+
+        if (!username || !password) {
+            message.textContent = 'Please enter both username and password.';
+            return;
+        }
+
+        if (isLogin) {
+            const storedPassword = localStorage.getItem('user_' + username);
+            if (storedPassword === null) {
+                message.textContent = 'User not found. Please sign up first.';
+            } else if (storedPassword === password) {
+                message.style.color = '#fff';
+                message.textContent = 'Login successful! Welcome, \n' + username +  '.  Redirecting to home page...';
+                setTimeout(() => {
+                    window.location.href = 'index.htm';
+                }, 2000);
+            } else {
+                message.textContent = 'Incorrect password. Please try again.';
+            }
+        } else {
+            if (localStorage.getItem('user_' + username) !== null) {
+                message.textContent = 'Username already exists. Please choose another.';
+            } else {
+                localStorage.setItem('user_' + username, password);
+                message.style.color = '#7CFC00';
+                message.textContent = 'Sign up successful! Please log in to continue.';
+                toggleLink.click();
+            }
+        }
+        authForm.reset();
+    });
+
+    toggleLink.addEventListener('click', toggleLinkHandler);
+</script>
+</html>
